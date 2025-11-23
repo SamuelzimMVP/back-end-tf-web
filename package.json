@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "back-end-tf-web",
+  "description": "Back-End do trabalho final da disciplina de WEB",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
