@@ -123,6 +123,32 @@ app.delete("/administrador/:id", async (req, res) => {
   }
 });
 
+// LOGIN DE ADMINISTRADOR
+app.post("/administrador/login", async (req, res) => {
+  const db = conectarBD();
+  const { email, senha } = req.body;
+
+  if (!email || !senha) {
+    return res.status(400).json({ erro: "Email e senha são obrigatórios." });
+  }
+
+  try {
+    const result = await db.query(
+      `SELECT id_admin, nome, email FROM administrador WHERE email = $1 AND senha = $2`,
+      [email, senha]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(401).json({ erro: "Email ou senha incorretos." });
+    }
+
+    res.json(result.rows[0]); // Retorna dados do admin (sem a senha)
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ erro: "Erro ao fazer login." });
+  }
+});
+
 // =======================================================================================
 // CRUD - SERVIÇO
 // =======================================================================================
