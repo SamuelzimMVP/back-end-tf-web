@@ -197,6 +197,25 @@ app.delete("/servico/:id", async (req, res) => {
   }
 });
 
+// UPDATE
+app.put("/servico/:id", async (req, res) => {
+  const db = conectarBD();
+  const { nome, descricao, valor, popular } = req.body; // ← adicionado 'popular'
+
+  try {
+    const result = await db.query(
+      `UPDATE servico 
+       SET nome=$1, descricao=$2, valor=$3, popular=$4 
+       WHERE id_servico=$5 
+       RETURNING *;`,
+      [nome, descricao, valor, popular ? true : false, req.params.id] // ← converte para boolean
+    );
+    res.json(result.rows[0]);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ erro: "Erro ao atualizar serviço" });
+  }
+});
 // ========================
 // EXPORT PARA VERCEL
 // ========================
