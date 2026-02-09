@@ -1,102 +1,163 @@
 
-# 🖥️ Back-End – Trabalho Final de Web  
-## **Caroba Contabilidade**
+# 🌐 Back-End TF Web
 
-**URL API**: https://back-end-tf-web-gamma.vercel.app
+API REST desenvolvida como trabalho final da disciplina de Desenvolvimento Web, com o objetivo de implementar um sistema completo utilizando Node.js e Express.
 
----
-
-### 🔹 **Administrador**
-
-**[GET] /administrador**  
-Descrição: Retorna todos os administradores cadastrados.
-
-**[GET] /administrador/{id}**  
-Descrição: Retorna um único administrador pelo ID.
-
-**[POST] /administrador**  
-Descrição: Cadastra um novo administrador.  
-Body:
-```json
-{
-  "nome": "arthurbombonzeiro",
-  "email": "arthurbombonzeiro",
-  "senha": "12345"
-}
-```
-
-**[PUT] /administrador/{id}**  
-Descrição: Atualiza um administrador existente.  
-Body:
-```json
-{
-  "nome": "Novo Nome",
-  "email": "novo@email.com",
-  "senha": "novaSenha"
-}
-```
-
-**[DELETE] /administrador/{id}**  
-Descrição: Remove um administrador pelo ID.
-
-**[POST] /administrador/login**  
-Descrição: Realiza login de administrador.  
-Body:
-```json
-{
-  "email": "arthurbombonzeiro",
-  "senha": "12345"
-}
-```
+O projeto simula um sistema de gerenciamento com autenticação e operações CRUD.
 
 ---
 
-### 🔹 **Serviço**
+## 🚀 Funcionalidades
 
-**[GET] /servico**  
-Descrição: Retorna todos os serviços cadastrados.
-
-**[GET] /servico/populares**  
-Descrição: Retorna apenas os serviços marcados como populares.
-
-**[GET] /servico/{id}**  
-Descrição: Retorna um único serviço pelo ID.
-
-**[POST] /servico**  
-Descrição: Cadastra um novo serviço.  
-Body:
-```json
-{
-  "nome": "Abrir CNPJ",
-  "descricao": "RG, CPF e comprovante de residência",
-  "valor": 500.00,
-  "popular": true
-}
-```
-
-**[PUT] /servico/{id}**  
-Descrição: Atualiza um serviço existente.  
-Body:
-```json
-{
-  "nome": "Declaração de IRPF",
-  "descricao": "Informes de rendimento e dependentes",
-  "valor": 350.00,
-  "popular": false
-}
-```
-
-**[DELETE] /servico/{id}**  
-Descrição: Remove um serviço pelo ID.
+✔ Cadastro de usuários/administradores  
+✔ Login com autenticação  
+✔ CRUD completo de serviços  
+✔ Organização em rotas e controllers  
+✔ Estrutura modularizada  
 
 ---
 
-### 👥 Integrantes
+## 🛠️ Tecnologias Utilizadas
 
-Bruno Luan Ferreira Pardinho, Otávio Silva de Oliveira, Rhyan Silva Ribeiro, Samuel Rodrigues Caroba Silva.  
+- Node.js
+- Express
+- JavaScript
+- JWT (autenticação)
+- (Banco de dados: adicionar aqui se usar – PostgreSQL / SQLite / MySQL)
 
-- Bruno: https://github.com/reload-Bruno  
-- Otavio: https://github.com/OtavioOliveira17  
-- Rhyan: https://github.com/Rhyan7-mestre  
-- Samuel: https://github.com/Samuel-Caroba
+---
+
+## 📂 Estrutura do Projeto
+
+```
+
+back-end-tf-web/
+│
+├── src/
+│   ├── controllers/
+│   ├── routes/
+│   ├── models/
+│   ├── middlewares/
+│   └── server.js
+│
+├── package.json
+└── README.md
+
+````
+
+---
+
+## ⚙️ Como Executar o Projeto
+
+### 1️⃣ Clone o repositório
+
+```bash
+git clone https://github.com/SamuelzimMVP/back-end-tf-web.git
+````
+
+### 2️⃣ Acesse a pasta
+
+```bash
+cd back-end-tf-web
+```
+
+### 3️⃣ Instale as dependências
+
+```bash
+npm install
+```
+
+### 4️⃣ Configure variáveis de ambiente (se usar JWT ou banco)
+
+Crie um arquivo `.env`:
+
+```
+PORT=3000
+JWT_SECRET=sua_chave_secreta
+DATABASE_URL=sua_string_de_conexao
+```
+
+### 5️⃣ Execute o servidor
+
+```bash
+npm start
+```
+
+Servidor rodando em:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 📡 Endpoints Principais
+
+### 🔐 Autenticação
+
+```
+POST /login
+```
+
+Body:
+
+```json
+{
+  "email": "admin@email.com",
+  "senha": "123456"
+}
+```
+
+---
+
+### 👤 Administradores
+
+```
+GET /administrador
+POST /administrador
+PUT /administrador/:id
+DELETE /administrador/:id
+```
+
+---
+
+### 🛠 Serviços
+
+```
+GET /servico
+POST /servico
+PUT /servico/:id
+DELETE /servico/:id
+```
+
+---
+
+## 🧠 Conceitos Aplicados
+
+* Estruturação de API REST
+* Organização em camadas (Routes, Controllers)
+* Manipulação de requisições HTTP
+* Tratamento de erros
+* Modularização do código
+
+---
+
+## 🔮 Melhorias Futuras
+
+* Integração com banco de dados relacional
+* Implementação de autenticação JWT com middleware
+* Validação de dados
+* Testes automatizados
+* Deploy em nuvem (Render, Railway ou Heroku)
+
+---
+
+## 👨‍💻 Autor
+
+Samuel Rodrigues
+Desenvolvedor Backend em formação
+JavaScript | Node.js | APIs REST
+
+GitHub: [https://github.com/SamuelzimMVP](https://github.com/SamuelzimMVP)
+LinkedIn: [https://www.linkedin.com/in/samuel-rodrigues-7b7538360/](https://www.linkedin.com/in/samuel-rodrigues-7b7538360/)
 
